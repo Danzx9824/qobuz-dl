@@ -50,7 +50,7 @@ def _reset_config(config_file):
     config["DEFAULT"]["no_m3u"] = "false"
     config["DEFAULT"]["albums_only"] = "false"
     config["DEFAULT"]["og_cover"] = "true"
-    config["DEFAULT"]["embed_art"] = "true"
+    config["DEFAULT"]["embed_art"] = "false"
     config["DEFAULT"]["no_cover"] = "false"
     config["DEFAULT"]["no_database"] = "true"
     logging.info(f"{YELLOW}Getting tokens. Please wait...")

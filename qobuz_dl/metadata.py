@@ -96,7 +96,7 @@ def _embed_id3_img(root_dir, audio: id3.ID3):
 
 # Use KeyError catching instead of dict.get to avoid empty tags
 def tag_flac(
-    filename, root_dir, final_name, d: dict, album, istrack=True, em_image=True
+    filename, root_dir, final_name, d: dict, album, istrack=True, em_image=False
 ):
     """
     Tag a FLAC file
@@ -153,7 +153,7 @@ def tag_flac(
     os.rename(filename, final_name)
 
 
-def tag_mp3(filename, root_dir, final_name, d, album, istrack=True, em_image=True):
+def tag_mp3(filename, root_dir, final_name, d, album, istrack=True, em_image=False):
     """
     Tag an mp3 file
 

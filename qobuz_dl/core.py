@@ -38,7 +38,7 @@ class QobuzDL:
         self,
         directory="downloads",
         quality=27,
-        embed_art=True,
+        embed_art=False,
         lucky_limit=1,
         lucky_type="album",
         interactive_limit=20,
