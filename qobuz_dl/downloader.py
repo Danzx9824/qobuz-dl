@@ -336,7 +336,7 @@ def _get_title(item_dict):
     return album_title
 
 
-def _get_extra(item, dirn, extra="cover.jpg", og_quality=False:
+def _get_extra(item, dirn, extra="cover.jpg", og_quality=False):
     extra_file = os.path.join(dirn, extra)
     if os.path.isfile(extra_file):
         logger.info(f"{OFF}{extra} was already downloaded")
