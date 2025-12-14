@@ -38,7 +38,6 @@ class QobuzDL:
         self,
         directory="downloads",
         quality=27,
-        embed_art=False,
         lucky_limit=1,
         lucky_type="album",
         interactive_limit=20,
@@ -53,7 +52,6 @@ class QobuzDL:
     ):
         self.directory = create_and_return_dir(directory)
         self.quality = quality
-        self.embed_art = embed_art
         self.lucky_limit = lucky_limit
         self.lucky_type = lucky_type
         self.interactive_limit = interactive_limit
@@ -91,7 +89,6 @@ class QobuzDL:
                 item_id,
                 alt_path or self.directory,
                 int(self.quality),
-                self.embed_art,
                 self.ignore_singles_eps,
                 self.cover_og_quality,
                 self.no_cover,
@@ -111,10 +108,6 @@ class QobuzDL:
             },
             "artist": {
                 "func": self.client.get_artist_meta,
-                "iterable_key": "albums",
-            },
-            "label": {
-                "func": self.client.get_label_meta,
                 "iterable_key": "albums",
             },
             "album": {"album": True, "func": None, "iterable_key": None},

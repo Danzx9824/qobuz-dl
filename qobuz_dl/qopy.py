@@ -166,9 +166,6 @@ class Client:
     def get_plist_meta(self, id):
         return self.multi_meta("playlist/get", "tracks_count", id, None)
 
-    def get_label_meta(self, id):
-        return self.multi_meta("label/get", "albums_count", id, None)
-
     def search_albums(self, query, limit):
         return self.api_call("album/search", query=query, limit=limit)
 

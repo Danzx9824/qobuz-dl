@@ -36,7 +36,6 @@ class Download:
         item_id: str,
         path: str,
         quality: int,
-        embed_art: bool = False,
         albums_only: bool = False,
         cover_og_quality: bool = True,
         no_cover: bool = False,
@@ -48,7 +47,6 @@ class Download:
         self.path = path
         self.quality = quality
         self.albums_only = albums_only
-        self.embed_art = embed_art
         self.cover_og_quality = cover_og_quality
         self.no_cover = no_cover
         self.folder_format = folder_format or DEFAULT_FOLDER

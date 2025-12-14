@@ -50,7 +50,6 @@ def _reset_config(config_file):
     config["DEFAULT"]["no_m3u"] = "false"
     config["DEFAULT"]["albums_only"] = "false"
     config["DEFAULT"]["og_cover"] = "true"
-    config["DEFAULT"]["embed_art"] = "false"
     config["DEFAULT"]["no_cover"] = "false"
     config["DEFAULT"]["no_database"] = "true"
     logging.info(f"{YELLOW}Getting tokens. Please wait...")
@@ -125,7 +124,6 @@ def main():
         no_m3u = config.getboolean("DEFAULT", "no_m3u")
         albums_only = config.getboolean("DEFAULT", "albums_only")
         og_cover = config.getboolean("DEFAULT", "og_cover")
-        embed_art = config.getboolean("DEFAULT", "embed_art")
         no_cover = config.getboolean("DEFAULT", "no_cover")
         no_database = config.getboolean("DEFAULT", "no_database")
         app_id = config["DEFAULT"]["app_id"]
