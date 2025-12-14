@@ -164,7 +164,6 @@ def main():
     qobuz = QobuzDL(
         arguments.directory,
         arguments.quality,
-        arguments.embed_art or embed_art,
         ignore_singles_eps=arguments.albums_only or albums_only,
         no_m3u_for_playlists=arguments.no_m3u or no_m3u,
         cover_og_quality=arguments.og_cover or og_cover,
