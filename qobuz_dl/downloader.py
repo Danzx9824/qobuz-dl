@@ -219,7 +219,6 @@ class Download:
                 track_metadata,
                 album_or_track_metadata,
                 is_track,
-                self.embed_art,
             )
         except Exception as e:
             logger.error(f"{RED}Error tagging the file: {e}", exc_info=True)
