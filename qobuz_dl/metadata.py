@@ -115,11 +115,6 @@ def tag_flac(
 
     audio["TRACKNUMBER"] = str(d["track_number"])  # TRACK NUMBER
 
-    try:
-        audio["ISRC"] = d["isrc"]
-    except KeyError:
-        pass
-
     if "Disc " in final_name:
         audio["DISCNUMBER"] = str(d["media_number"])
 
@@ -135,11 +130,6 @@ def tag_flac(
         audio["ARTIST"] = artist_ or album["artist"]["name"]
 
     audio["LABEL"] = album.get("label", {}).get("name", "n/a")
-
-    try:
-        audio["UPC"] = album.get("upc") or album.get("barcode") or "n/a"
-    except Exception:
-        pass
 
     if istrack:
         audio["GENRE"] = d["album"]["genre"]["name"]
@@ -183,18 +173,9 @@ def tag_mp3(filename, root_dir, final_name, d, album, istrack=True, em_image=Tru
     # temporarily holds metadata
     tags = dict()
     tags["title"] = _get_title(d)
-    if "isrc" in d:
-       tags["isrc"] = d["isrc"]
     try:
         tags["label"] = album["label"]["name"]
     except KeyError:
-        pass
-    #UPC
-    try:
-        upc_value = album.get("upc") or album.get("barcode")
-        if upc_value:
-            audio.add(id3.TXXX(encoding=3, desc="UPC", text=upc_value))
-    except Exception:
         pass
 
     artist_ = d.get("performer", {}).get("name")  # TRACK ARTIST
