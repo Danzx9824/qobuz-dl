@@ -34,6 +34,7 @@ class Download:
         self,
         client,
         item_id: str,
+        path: str,
         quality: int,
         albums_only: bool = False,
         cover_og_quality: bool = True,
@@ -43,6 +44,7 @@ class Download:
     ):
         self.client = client
         self.item_id = item_id
+        self.path = path
         self.quality = quality
         self.albums_only = albums_only
         self.cover_og_quality = cover_og_quality

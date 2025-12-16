@@ -130,7 +130,7 @@ def add_common_arg(custom_parser, default_folder, default_quality):
 
 
 def qobuz_dl_args(
-    default_quality=27, default_limit=20
+    default_quality=27, default_limit=20, default_folder="downloads"
 ):
     parser = argparse.ArgumentParser(
         prog="qobuz-dl",
@@ -166,8 +166,8 @@ def qobuz_dl_args(
     download = dl_args(subparsers)
     lucky = lucky_args(subparsers)
     [
-        add_common_arg(i, download, default_quality)
-        for i in (interactive, lucky)
+        add_common_arg(i, default_folder, default_quality)
+        for i in (interactive, download, lucky)
     ]
 
     return parser

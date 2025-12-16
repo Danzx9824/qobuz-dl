@@ -34,6 +34,10 @@ def _reset_config(config_file):
     config["DEFAULT"]["email_or_userid"] = email_or_userid
     password_or_token = getpass(prompt = "Enter your password or token\n- ")
     config["DEFAULT"]["password_or_token"] = hashlib.md5(password_or_token.encode("utf-8")).hexdigest() if '@' in email_or_userid else password_or_token
+    config["DEFAULT"]["default_folder"] = (
+        input("Folder for downloads (leave empty for default 'downloads')\n- ")
+        or "downloads"
+    )
     config["DEFAULT"]["default_quality"] = (
         input(
             "Download quality (5, 6, 7, 27) "
@@ -114,6 +118,7 @@ def main():
     try:
         email_or_userid = config["DEFAULT"]["email_or_userid"]
         password_or_token = config["DEFAULT"]["password_or_token"]
+        default_folder = config["DEFAULT"]["default_folder"]
         default_limit = config.getint("DEFAULT", "default_limit")
         default_quality = config.getint("DEFAULT", "default_quality")
         no_m3u = config.getboolean("DEFAULT", "no_m3u")
@@ -130,7 +135,7 @@ def main():
             secret for secret in config["DEFAULT"]["secrets"].split(",") if secret
         ]
         arguments = qobuz_dl_args(
-            default_quality, default_limit
+            default_quality, default_limit, default_folder
         ).parse_args()
     except (KeyError, UnicodeDecodeError, configparser.Error) as error:
         arguments = qobuz_dl_args().parse_args()
