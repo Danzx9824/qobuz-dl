@@ -130,7 +130,7 @@ def add_common_arg(custom_parser, default_folder, default_quality):
 
 
 def qobuz_dl_args(
-    default_quality=27, default_limit=20, default_folder="downloads"
+    default_quality=27, default_limit=20, default_folder=""
 ):
     parser = argparse.ArgumentParser(
         prog="qobuz-dl",

@@ -36,7 +36,7 @@ logger = logging.getLogger(__name__)
 class QobuzDL:
     def __init__(
         self,
-        directory="downloads",
+        directory="",
         quality=27,
         lucky_limit=1,
         lucky_type="album",

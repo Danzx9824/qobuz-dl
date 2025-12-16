@@ -34,18 +34,8 @@ def _reset_config(config_file):
     config["DEFAULT"]["email_or_userid"] = email_or_userid
     password_or_token = getpass(prompt = "Enter your password or token\n- ")
     config["DEFAULT"]["password_or_token"] = hashlib.md5(password_or_token.encode("utf-8")).hexdigest() if '@' in email_or_userid else password_or_token
-    config["DEFAULT"]["default_folder"] = (
-        input("Folder for downloads (leave empty for default 'downloads')\n- ")
-        or "downloads"
-    )
-    config["DEFAULT"]["default_quality"] = (
-        input(
-            "Download quality (5, 6, 7, 27) "
-            "[320, LOSSLESS, 24B <96KHZ, 24B >96KHZ]"
-            "\n(leave empty for default '27')\n- "
-        )
-        or "27"
-    )
+    config["DEFAULT"]["default_folder"] = ""
+    config["DEFAULT"]["default_quality"] = "27"
     config["DEFAULT"]["default_limit"] = "20"
     config["DEFAULT"]["no_m3u"] = "false"
     config["DEFAULT"]["albums_only"] = "false"
