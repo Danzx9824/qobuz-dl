@@ -118,7 +118,6 @@ def main():
     try:
         email_or_userid = config["DEFAULT"]["email_or_userid"]
         password_or_token = config["DEFAULT"]["password_or_token"]
-        default_folder = config["DEFAULT"]["default_folder"]
         default_limit = config.getint("DEFAULT", "default_limit")
         default_quality = config.getint("DEFAULT", "default_quality")
         no_m3u = config.getboolean("DEFAULT", "no_m3u")

@@ -36,7 +36,6 @@ logger = logging.getLogger(__name__)
 class QobuzDL:
     def __init__(
         self,
-        directory="downloads",
         quality=27,
         lucky_limit=1,
         lucky_type="album",
@@ -50,7 +49,6 @@ class QobuzDL:
         track_format="{tracknumber}. {tracktitle}",
         smart_discography=False,
     ):
-        self.directory = create_and_return_dir(directory)
         self.quality = quality
         self.lucky_limit = lucky_limit
         self.lucky_type = lucky_type
@@ -87,7 +85,6 @@ class QobuzDL:
             dloader = downloader.Download(
                 self.client,
                 item_id,
-                alt_path or self.directory,
                 int(self.quality),
                 self.ignore_singles_eps,
                 self.cover_og_quality,
